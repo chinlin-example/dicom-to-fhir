@@ -1,0 +1,44 @@
+{
+    "resourceType": "ImagingStudy",
+    "id": "1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170",
+    "identifier": [
+        {
+            "use": "official",
+            "system": "urn:dicom:uid",
+            "value": "urn:oid:1.2.826.0.1.3680043.8.1055.1.20111102150758591.92402465.76095170"
+        }
+    ],
+    "status": "unknown",
+    "subject": {
+        "reference": "Patient/0",
+        "type": "Patient",
+        "identifier": {
+            "use": "usual",
+            "value": "0"
+        }
+    },
+    "started": "2006-10-12T01:02:58.000Z",
+    "description": "CT1 abdomen",
+    "series": [
+        {
+            "uid": "1.2.826.0.1.3680043.8.1055.1.20111102150758591.96842950.07877442",
+            "number": 6168,
+            "modality": {
+                "system": "http://dicom.nema.org/resources/ontology/DCM",
+                "code": "CT"
+            },
+            "description": "ARTERIELLE",
+            "instance": [
+                {
+                    "uid": "1.2.826.0.1.3680043.8.1055.1.20111102150758591.03296050.69180943",
+                    "sopClass": {
+                        "system": "urn:ietf:rfc:3986",
+                        "code": "urn:oid:1.2.840.10008.5.1.4.1.1.2"
+                    },
+                    "number": 1,
+                    "title": "ORIGINAL\\PRIMARY\\AXIAL\\HELIX"
+                }
+            ]
+        }
+    ]
+}
