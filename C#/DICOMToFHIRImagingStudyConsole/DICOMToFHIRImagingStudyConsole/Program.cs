@@ -11,8 +11,10 @@ namespace DICOMToFHIRImagingStudyConsole
         static void Main(string[] args)
         {
             DICOMFHIR dicomFHIR = new DICOMFHIR("../../../../../dicomFile/image-000001.dcm");
-            string json = dicomFHIR.GetDICOMFHIRImagingStudyJson();
-            Console.WriteLine(json);
+            string imagingStudyJson = dicomFHIR.GetDICOMFHIRImagingStudyJson();
+            string patientJson = dicomFHIR.GetDICOMFHIRPatientJson();
+            Console.WriteLine($"ImagingStudy: {imagingStudyJson}");
+            Console.WriteLine($"Patient: {patientJson}");
             Console.Read();
         }
     }
