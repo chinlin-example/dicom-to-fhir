@@ -1,0 +1,13 @@
+{
+    "resourceType": "Patient",
+    "id": "0",
+    "gender": "unknown",
+    "active": true,
+    "familyName": {
+        "use": "usual",
+        "text": "Anonymized",
+        "family": [
+            "Anonymized"
+        ]
+    }
+}

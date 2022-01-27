@@ -1,5 +1,6 @@
 import pydicom
 import json
+import utils
 from datetime import datetime
 
 
@@ -278,7 +279,7 @@ def do_dicom_to_fhir_imagingstudy(filename):
     imaging_study_obj.series = [series_obj]
     imaging_study_obj_json_str = json.dumps(imaging_study_obj, default=lambda o: o.__dict__)
     imaging_study_obj_json = json.loads(imaging_study_obj_json_str)
-    imaging_study_obj_json_remove = delete_none(imaging_study_obj_json)
+    imaging_study_obj_json_remove = utils.delete_none(imaging_study_obj_json)
     imaging_study_obj_json_str = json.dumps(imaging_study_obj_json_remove, default=lambda o: o.__dict__, indent=4)
     print(imaging_study_obj_json_str)
     return imaging_study_obj_json_str
@@ -286,22 +287,6 @@ def do_dicom_to_fhir_imagingstudy(filename):
 
 pass
 
-
-def delete_none(dict_item):
-    temp_dict = dict_item.copy()
-    for key, value in temp_dict.items():
-        if value is None:
-            del dict_item[key]
-        elif isinstance(value, dict):
-            delete_none(value)
-        elif isinstance(value, list):
-            value = [delete_none(item) for item in value if item is not None]
-        pass
-    pass
-    return dict_item
-
-
-pass
 
 if __name__ == '__main__':
     do_dicom_to_fhir_imagingstudy("../image-000001.dcm")
