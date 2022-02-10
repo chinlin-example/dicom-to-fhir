@@ -32,7 +32,7 @@ async function doDICOMToFHIRImagingStudy(filename) {
             }
 
             let imaging_started = dataset.string('x00080020') + dataset.string('x00080030');
-            const date = Moment(imaging_started, "YYYYMMDDhhmmss").toISOString();
+            const date = Moment(imaging_started, "YYYYMMDDHHmmss").toISOString();
             studyObj.started = date;
             studyObj.numberOfSeries = dataset.string('x00201206');
             studyObj.numberOfInstances = dataset.string('x00201208');
@@ -45,7 +45,7 @@ async function doDICOMToFHIRImagingStudy(filename) {
             studySeriesObj.numberOfInstances = dataset.intString('x00201209');
             studySeriesObj.bodySite.display = dataset.string('x00180015');
             let series_started = dataset.string('x00080021') + dataset.string('x00080031');
-            const series_date = Moment(series_started, "YYYYMMDDhhmmss").toDate();
+            const series_date = Moment(series_started, "YYYYMMDDHHmmss").toDate();
             studySeriesObj.started = series_date != null ? series_date : undefined;
             studySeriesObj.performer = dataset.string('x00081050') || dataset.string('x00081052') || dataset.string('x00081070') || dataset.string('x00081072');
             let studySeriesInstanceObj = new ImagingStudy_Series_Instance();
